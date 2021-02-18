@@ -11,7 +11,7 @@ const note = {
         content: req.body.content,
         articleUrl: req.body.articleUrl,
         twitterName: req.body.twitterName,
-        userID: req.body.userID,
+        userId: req.body.userId,
       };
 
       try {
@@ -25,13 +25,13 @@ const note = {
       }
   },
   getAllNotes: (req, res) => {
-    console.log(req);
-    Note.find({userID: req.query.userID})
+    // console.log(req);
+    Note.find({userId: req.query.userId})
       .then((results) => res.send(results))
       .catch((err) => console.log(err));
   },
   getAllNotesOfOneType: (req, res) => {
-    Note.find({userID: req.query.userID, type: req.query.type})
+    Note.find({userId: req.query.userId, type: req.query.type})
       .then((results) => res.send(results))
       .catch((err) => console.log(err));
   },
